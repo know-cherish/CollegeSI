@@ -54,11 +54,9 @@ class CollegesiPipeline(object):
         print("------------------Piplines------------------\n")
         try:
             self.cursor.execute(sql,data)
-            print(item['Major'] + "--------插入成功-------" + "\n")
-        except:
-            print("=======插入失败 正在回滚======\n")
+            print(item['PositionTitle'] + "--------插入成功-------" + "\n")
+        except Exception as e:
+            print(e)
             self.conn.rollback()
-        finally:
-            self.conn.close()
 
             
